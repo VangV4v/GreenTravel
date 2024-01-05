@@ -1,0 +1,216 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.cusc.service.impl;
+
+import com.cusc.dto.MonthDTO;
+import com.cusc.dto.RevenueInMonthDTO;
+import com.cusc.dto.RevenueInYearDTO;
+import com.cusc.entities.BookingCars;
+import com.cusc.entities.CarModels;
+import com.cusc.entities.TypeCars;
+import com.cusc.repositories.BookingCarsRepository;
+import com.cusc.repositories.CarModelsRepository;
+import com.cusc.repositories.TypeCarsRepository;
+import com.cusc.service.RevenueCarManageService;
+import com.google.gson.Gson;
+import java.time.Year;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+
+/**
+ *
+ * @author kyqua
+ */
+@Service
+public class RevenueCarManageServiceimpl implements RevenueCarManageService {
+
+    @Autowired
+    BookingCarsRepository bookingCarsRepository;
+
+    @Autowired
+    CarModelsRepository carModelsRepository;
+
+    @Autowired
+    TypeCarsRepository typeCarsRepository;
+
+    @Override
+    public String homeRevenueCar(Model model) {
+        return "ad_home_revenuecar";
+    }
+
+    @Override
+    public String revenueCarModelInMonth(HttpServletRequest hsr) {
+        int month = Integer.parseInt(hsr.getParameter("month"));
+
+        int year = Year.now().getValue();
+        List<BookingCars> listBookingCar = bookingCarsRepository.findAll();
+        List<CarModels> listCarModel = carModelsRepository.findAll();
+        List<RevenueInMonthDTO> list = new ArrayList<>();
+
+        for (CarModels item : listCarModel) {
+            RevenueInMonthDTO revenueCarModelDTO = new RevenueInMonthDTO();
+            revenueCarModelDTO.setRevenue(Double.parseDouble("0"));
+            for (BookingCars subitem : listBookingCar) {
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(subitem.getRentalDate());
+                int m = cal.get(Calendar.MONTH);
+                int y = cal.get(Calendar.YEAR);
+
+                if (subitem.getStatus() == 2 && item.getCarModelID() == subitem.getCarID().getCarModelID().getCarModelID() && m == (month - 1) && y == year) {
+
+                    revenueCarModelDTO.setRevenue(revenueCarModelDTO.getRevenue() + subitem.getPrice());
+                }
+            }
+            revenueCarModelDTO.setLabel(item.getName());
+            list.add(revenueCarModelDTO);
+        }
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        return json;
+    }
+
+    @Override
+    public String revenueCarTypeInMonth(HttpServletRequest hsr) {
+        int month = Integer.parseInt(hsr.getParameter("month"));
+        int year = Year.now().getValue();
+        List<BookingCars> listBookingCar = bookingCarsRepository.findAll();
+        List<TypeCars> listCarType = typeCarsRepository.findAll();
+        List<RevenueInMonthDTO> list = new ArrayList<>();
+
+        for (TypeCars item : listCarType) {
+            RevenueInMonthDTO dTO = new RevenueInMonthDTO();
+            dTO.setRevenue(Double.parseDouble("0"));
+            for (BookingCars subitem : listBookingCar) {
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(subitem.getRentalDate());
+                int m = cal.get(Calendar.MONTH);
+                int y = cal.get(Calendar.YEAR);
+
+                if (subitem.getStatus() == 2 && item.getCarTypeID() == subitem.getCarID().getCarTypeID().getCarTypeID() && m == (month - 1) && y == year) {
+
+                    dTO.setRevenue(dTO.getRevenue() + subitem.getPrice());
+                }
+            }
+            dTO.setLabel(item.getCarTypeName());
+            list.add(dTO);
+        }
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        return json;
+    }
+
+    @Override
+    public String revenueAirConditionedCarInYear(HttpServletRequest hsr) {
+        int year = Integer.parseInt(hsr.getParameter("year"));
+        Gson gson = new Gson();
+        List<RevenueInYearDTO> listR = new ArrayList<>();
+        List<BookingCars> listBkc = bookingCarsRepository.findAll();
+        List<MonthDTO> listMonth = new ArrayList<>();
+        listMonth.add(new MonthDTO(1, "Juanary"));
+        listMonth.add(new MonthDTO(2, "Feburary"));
+        listMonth.add(new MonthDTO(3, "March"));
+        listMonth.add(new MonthDTO(4, "April"));
+        listMonth.add(new MonthDTO(5, "May"));
+        listMonth.add(new MonthDTO(6, "June"));
+        listMonth.add(new MonthDTO(7, "July"));
+        listMonth.add(new MonthDTO(8, "Aggust"));
+        listMonth.add(new MonthDTO(9, "September"));
+        listMonth.add(new MonthDTO(10, "October"));
+        listMonth.add(new MonthDTO(11, "November"));
+        listMonth.add(new MonthDTO(12, "December"));
+        for (MonthDTO monthDTO : listMonth) {
+            RevenueInYearDTO dto = new RevenueInYearDTO();
+            dto.setRevenue(Double.parseDouble("0"));
+            dto.setMonth(monthDTO.getName());
+            for (BookingCars bookingCars : listBkc) {
+                if (bookingCars.getStatus() == 2 && bookingCars.getRentalDate().toLocalDate().getMonthValue() == monthDTO.getMonth() && bookingCars.getRentalDate().toLocalDate().getYear() == year && bookingCars.getCarID().getIsHasAirConditioned()) {
+                    dto.setRevenue(dto.getRevenue() + bookingCars.getPrice());
+                }
+            }
+            listR.add(dto);
+        }
+        String json = gson.toJson(listR);
+        return json;
+    }
+
+    @Override
+    public String revenueNonAirConditionedCarInYear(HttpServletRequest hsr) {
+        int year = Integer.parseInt(hsr.getParameter("year"));
+        System.out.println("=========" + year);
+        Gson gson = new Gson();
+        List<RevenueInYearDTO> listR = new ArrayList<>();
+        List<BookingCars> listBkc = bookingCarsRepository.findAll();
+        List<MonthDTO> listMonth = new ArrayList<>();
+        listMonth.add(new MonthDTO(1, "Juanary"));
+        listMonth.add(new MonthDTO(2, "Feburary"));
+        listMonth.add(new MonthDTO(3, "March"));
+        listMonth.add(new MonthDTO(4, "April"));
+        listMonth.add(new MonthDTO(5, "May"));
+        listMonth.add(new MonthDTO(6, "June"));
+        listMonth.add(new MonthDTO(7, "July"));
+        listMonth.add(new MonthDTO(8, "Aggust"));
+        listMonth.add(new MonthDTO(9, "September"));
+        listMonth.add(new MonthDTO(10, "October"));
+        listMonth.add(new MonthDTO(11, "November"));
+        listMonth.add(new MonthDTO(12, "December"));
+        for (MonthDTO monthDTO : listMonth) {
+            RevenueInYearDTO dto = new RevenueInYearDTO();
+            dto.setRevenue(Double.parseDouble("0"));
+            dto.setMonth(monthDTO.getName());
+            for (BookingCars bookingCars : listBkc) {
+                if (bookingCars.getStatus() == 2 && bookingCars.getRentalDate().toLocalDate().getMonthValue() == monthDTO.getMonth() && bookingCars.getRentalDate().toLocalDate().getYear() == year && !bookingCars.getCarID().getIsHasAirConditioned()) {
+                    System.out.println("-------->" + bookingCars.getRentalDate().toLocalDate().getYear());
+                                         dto.setRevenue(dto.getRevenue() + bookingCars.getPrice());
+                }
+            }
+           
+            listR.add(dto);
+        }
+        String json = gson.toJson(listR);
+        return json;
+    }
+
+    @Override
+    public String revenueCarInYear(HttpServletRequest hsr) {
+        int year = Integer.parseInt(hsr.getParameter("year"));
+        Gson gson = new Gson();
+        List<RevenueInYearDTO> listR = new ArrayList<>();
+        List<BookingCars> listBkc = bookingCarsRepository.findAll();
+        List<MonthDTO> listMonth = new ArrayList<>();
+        listMonth.add(new MonthDTO(1, "Juanary"));
+        listMonth.add(new MonthDTO(2, "Feburary"));
+        listMonth.add(new MonthDTO(3, "March"));
+        listMonth.add(new MonthDTO(4, "April"));
+        listMonth.add(new MonthDTO(5, "May"));
+        listMonth.add(new MonthDTO(6, "June"));
+        listMonth.add(new MonthDTO(7, "July"));
+        listMonth.add(new MonthDTO(8, "Aggust"));
+        listMonth.add(new MonthDTO(9, "September"));
+        listMonth.add(new MonthDTO(10, "October"));
+        listMonth.add(new MonthDTO(11, "November"));
+        listMonth.add(new MonthDTO(12, "December"));
+        for (MonthDTO monthDTO : listMonth) {
+            RevenueInYearDTO dto = new RevenueInYearDTO();
+           dto.setRevenue(Double.parseDouble("0"));
+            dto.setMonth(monthDTO.getName());
+            for (BookingCars bookingCars : listBkc) {
+                if (bookingCars.getStatus() == 2 && bookingCars.getRentalDate().toLocalDate().getYear() == year && bookingCars.getRentalDate().toLocalDate().getMonthValue() == monthDTO.getMonth()) {
+                                                            dto.setRevenue(dto.getRevenue() + bookingCars.getPrice());
+
+                }
+            }
+           
+            listR.add(dto);
+        }
+        String json = gson.toJson(listR);
+        return json;
+    }
+
+}

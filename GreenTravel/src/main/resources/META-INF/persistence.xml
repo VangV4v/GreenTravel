@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence           http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="GreenTravel">
+        <!-- <class>com.java.entities.Accounts</class>-->
+        <class>com.cusc.entities.Drivers</class>
+        <class>com.cusc.entities.HotelFeedBacks</class>
+        <class>com.cusc.entities.LocalTravelInTours</class>
+        <class>com.cusc.entities.TypeCars</class>
+        <class>com.cusc.entities.HotelImages</class>
+        <class>com.cusc.entities.Flights</class>
+        <class>com.cusc.entities.Customers</class>
+        <class>com.cusc.entities.BookingTours</class>
+        <class>com.cusc.entities.Sysdiagrams</class>
+        <class>com.cusc.entities.TourTypes</class>
+        <class>com.cusc.entities.Cars</class>
+        <class>com.cusc.entities.LocalTravels</class>
+        <class>com.cusc.entities.Employees</class>
+        <class>com.cusc.entities.PackageTours</class>
+        <class>com.cusc.entities.Restaurants</class>
+        <class>com.cusc.entities.DriverInBookingCars</class>
+        <class>com.cusc.entities.Areas</class>
+        <class>com.cusc.entities.Roles</class>
+        <class>com.cusc.entities.BookingCars</class>
+        <class>com.cusc.entities.CarImages</class>
+        <class>com.cusc.entities.Tours</class>
+        <class>com.cusc.entities.Hotels</class>
+        <class>com.cusc.entities.CarModels</class>
+        <class>com.cusc.entities.Airlines</class>
+        <class>com.cusc.entities.FeedBacks</class>
+        <class>com.cusc.entities.Destinations</class>
+        <class>com.cusc.entities.Blogs</class>
+        <class>com.cusc.entities.PrivacyRefounds</class>
+        <class>com.cusc.entities.Provinces</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=GreenTravel"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value="sa"/>
+            <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServer2016Dialect"/>
+        </properties>
+    </persistence-unit>
+</persistence>

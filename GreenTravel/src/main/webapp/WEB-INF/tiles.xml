@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="403page"
+                template="/WEB-INF/views/403.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="" />
+        <put-attribute name="menu" value="" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="" />
+    </definition>
+    <!-- _________________client___________________ -->
+    <definition name="user"
+                template="/WEB-INF/views/layouts/client/userlayout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="" />
+        <put-attribute name="menu" value="" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="" />
+    </definition>
+    <definition name="index" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/index.jsp" />
+    </definition>
+    <definition name="about" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/about.jsp" />
+    </definition>
+    <definition name="packagetour" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/packagetour.jsp" />
+    </definition>
+    <definition name="packagetour_detail" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/packagetour_detail.jsp" />
+    </definition>
+    <definition name="bookingtour" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/bookingtour.jsp" />
+    </definition>
+    <definition name="hotel" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/hotel.jsp" />
+    </definition>
+    <definition name="flight" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/flight.jsp" />
+    </definition>
+    <definition name="restaurant" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/restaurant.jsp" />
+    </definition>
+    <definition name="localtravel" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/localtravel.jsp" />
+    </definition>
+    <definition name="destination" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/destination.jsp" />
+    </definition>
+    <definition name="insurance" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/insurance.jsp" />
+    </definition>      
+    <definition name="login" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/login.jsp" />
+    </definition>
+    <definition name="403" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/403.jsp" />
+    </definition>
+    <definition name="register" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/register.jsp" />
+    </definition>
+    <definition name="personinfomation" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/personinfomation.jsp" />
+    </definition>
+    <definition name="updatepassword" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/updatepassword.jsp" />
+    </definition>
+    <definition name="carrental" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/carrental.jsp" />
+    </definition>
+    <definition name="viewbookingcar" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/bookingcar.jsp" />
+    </definition>
+    <definition name="mybookingcar" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/viewbookingcar.jsp" />
+    </definition>
+    <definition name="mybookingtour" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/mybookingtour.jsp" />
+    </definition>
+    <definition name="view_qr" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/viewqr.jsp" />
+    </definition>
+    <definition name="view_qr_tour" extends="user">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/client/viewqr_tour.jsp" />
+    </definition>
+    <!-- _________________admin___________________ -->
+    <definition name="admin"
+                template="/WEB-INF/views/layouts/admin/adminlayout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="" />
+        <put-attribute name="menu" value="" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="" />
+    </definition>
+    <definition name="ad_index" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/index.jsp" />
+    </definition>
+    <!--employee-->
+    <definition name="ad_view_employee" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/employee/index.jsp" />
+    </definition>
+    <definition name="ad_create_employee" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/employee/create.jsp" />
+    </definition>
+    <definition name="ad_edit_employee" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/employee/edit.jsp" />
+    </definition>
+    <definition name="ad_detail_employee" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/employee/detail.jsp" />
+    </definition>
+    <!--role-->
+    <definition name="ad_view_role" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/role/index.jsp" />
+    </definition>
+    <!--customer-->
+    <definition name="ad_view_customer" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/customer/index.jsp" />
+    </definition>
+    <definition name="ad_create_customer" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/customer/create.jsp" />
+    </definition>    
+    <definition name="ad_edit_customer" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/customer/edit.jsp" />
+    </definition>    
+    <definition name="ad_detail_customer" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/customer/detail.jsp" />
+    </definition>  
+    <!--myprofile-->
+    <definition name="ad_profile" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/personinfomation.jsp" />
+    </definition>  
+    <definition name="ad_changepassword" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/updatepassword.jsp" />
+    </definition>  
+    <!--driver-->
+    <definition name="ad_view_driver" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/driver/index.jsp" />
+    </definition>
+    <definition name="ad_create_driver" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/driver/create.jsp" />
+    </definition>
+    <definition name="ad_edit_driver" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/driver/edit.jsp" />
+    </definition>
+    <definition name="ad_detail_driver" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/driver/detail.jsp" />
+    </definition>  
+    <!--typecar-->
+    <definition name="ad_view_typecar" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/typecar/index.jsp" />
+    </definition>
+    <definition name="ad_create_typecar" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/typecar/create.jsp" />
+    </definition>
+    <definition name="ad_edit_typecar" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/typecar/edit.jsp" />
+    </definition>
+    <definition name="ad_detail_typecar" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/typecar/detail.jsp" />
+    </definition>
+    <!--carmodel-->
+    <definition name="ad_view_carmodel" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/carmodel/index.jsp" />
+    </definition>
+    <definition name="ad_create_carmodel" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/carmodel/create.jsp" />
+    </definition>
+    <definition name="ad_edit_carmodel" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/carmodel/edit.jsp" />
+    </definition>
+    <definition name="ad_detail_carmodel" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/carmodel/detail.jsp" />
+    </definition>
+    
+    <!--car-->
+    <definition name="ad_view_car" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/car/index.jsp" />
+    </definition>
+    <definition name="ad_create_car" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/car/create.jsp" />
+    </definition>
+    <definition name="ad_edit_car" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/car/edit.jsp" />
+    </definition>
+    <definition name="ad_detail_car" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/car/detail.jsp" />
+    </definition>
+    <!--bookingcar-->
+    <definition name="ad_confirm_bookingcar" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/confirmation/bookingcar.jsp" />
+    </definition>
+    <definition name="ad_view_bookingcar" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/bookingcar/index.jsp" />
+    </definition>
+    <definition name="ad_detail_bookingcar" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/bookingcar/detail.jsp" />
+    </definition>
+    <definition name="ad_statistic_car" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/bookingcar/statistic.jsp" />
+    </definition>
+    <!--chart-->
+    <definition name="ad_chart" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/chart/main.jsp" />
+    </definition>
+    
+    <!--tourtype-->
+    <definition name="ad_view_tourtype" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/tourtype/index.jsp" />
+    </definition>
+    <definition name="ad_create_tourtype" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/tourtype/create.jsp" />
+    </definition>
+    <definition name="ad_edit_tourtype" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/tourtype/edit.jsp" />
+    </definition>
+      
+    <!--area-->
+    <definition name="ad_view_area" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/area/index.jsp" />
+    </definition>
+    <definition name="ad_create_area" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/area/create.jsp" />
+    </definition>
+    <definition name="ad_edit_area" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/area/edit.jsp" />
+    </definition>
+   
+      
+    <!--destination-->
+    <definition name="ad_view_destination" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/destination/index.jsp" />
+    </definition>
+    <definition name="ad_create_destination" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/destination/create.jsp" />
+    </definition>
+    <definition name="ad_edit_destination" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/destination/edit.jsp" />
+    </definition>
+    <definition name="ad_detail_destination" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/destination/detail.jsp" />
+    </definition>
+      
+    <!--local travel-->
+    <definition name="ad_view_localtravel" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/localtravel/index.jsp" />
+    </definition>
+    <definition name="ad_create_localtravel" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/localtravel/create.jsp" />
+    </definition>
+    <definition name="ad_edit_localtravel" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/localtravel/edit.jsp" />
+    </definition>
+    <definition name="ad_detail_localtravel" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/localtravel/detail.jsp" />
+    </definition>
+      
+    <!--restaurant-->
+    <definition name="ad_view_restaurant" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/restaurant/index.jsp" />
+    </definition>
+    <definition name="ad_create_restaurant" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/restaurant/create.jsp" />
+    </definition>
+    <definition name="ad_edit_restaurant" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/restaurant/edit.jsp" />
+    </definition>
+    <definition name="ad_detail_restaurant" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/restaurant/detail.jsp" />
+    </definition>
+      
+    <!--hotel-->
+    <definition name="ad_view_hotel" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/hotel/index.jsp" />
+    </definition>
+    <definition name="ad_create_hotel" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/hotel/create.jsp" />
+    </definition>
+    <definition name="ad_edit_hotel" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/hotel/edit.jsp" />
+    </definition>
+    <definition name="ad_detail_hotel" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/hotel/detail.jsp" />
+    </definition>
+    
+    <!--Province-->
+    <definition name="ad_view_province" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/province/index.jsp" />
+    </definition>
+    <definition name="ad_create_province" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/province/create.jsp" />
+    </definition>
+    <definition name="ad_edit_province" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/province/edit.jsp" />
+    </definition>
+    
+    <!--Airline-->
+    <definition name="ad_view_airline" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/airline/index.jsp" />
+    </definition>
+    <definition name="ad_create_airline" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/airline/create.jsp" />
+    </definition>
+    <definition name="ad_edit_airline" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/airline/edit.jsp" />
+    </definition>
+   
+    <!--Flight-->
+    <definition name="ad_view_flight" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/flight/index.jsp" />
+    </definition>
+    <definition name="ad_create_flight" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/flight/create.jsp" />
+    </definition>
+    <definition name="ad_edit_flight" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/flight/edit.jsp" />
+    </definition>
+    <definition name="ad_detail_flight" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/flight/detail.jsp" />
+    </definition>
+      
+    <!--package tour-->
+    <definition name="ad_view_packagetour" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/packagetour/index.jsp" />
+    </definition>
+    <definition name="ad_create_packagetour" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/packagetour/create.jsp" />
+    </definition> 
+    <definition name="ad_create_tour" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/packagetour/create_tour.jsp" />
+    </definition>  
+    <definition name="ad_detail_packagetour" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/packagetour/detail.jsp" />
+    </definition>  
+    <definition name="ad_edit_packagetour" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/packagetour/edit.jsp" />
+    </definition> 
+    <definition name="ad_edit_tour" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/packagetour/edit_tour.jsp" />
+    </definition> 
+    
+    <!--booking tour-->
+    <definition name="ad_view_bookingtour" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/bookingtour/index.jsp" />
+    </definition>
+    <definition name="ad_view_bookingtour_confirm" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/bookingtour/index_confirm.jsp" />
+    </definition>
+    <definition name="ad_detail_bookingtour" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/bookingtour/detail.jsp" />
+    </definition>
+     <definition name="ad_statistic_tour" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/bookingtour/statistic.jsp" />
+    </definition>
+    
+    <!--Revenue-->
+    <definition name="ad_home_revenuecar" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/revenue/revenuecar.jsp" />
+    </definition>
+    <definition name="ad_home_revenuetour" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/revenue/revenuetour.jsp" />
+    </definition>
+    
+
+    <definition name="ad_error" extends="admin">
+        <put-attribute name="body"
+                       value="/WEB-INF/views/admin/error.jsp" />
+    </definition> 
+   
+
+</tiles-definitions>
